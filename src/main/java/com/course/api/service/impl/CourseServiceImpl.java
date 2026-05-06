@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -53,13 +54,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public String deleteCourse(long courseId) {
-        boolean removed = list.removeIf(c -> c.getId() == courseId);
-        if (removed) {
-            return courseId+" removed successfully!!";
-        } else {
-            return "Wrong courseId, Please enter correct!!";
-        }
+    public void deleteCourse(long courseId) {
+        list = list.stream().filter(e -> e.getId() != courseId).collect(Collectors.toList());
     }
 
 
