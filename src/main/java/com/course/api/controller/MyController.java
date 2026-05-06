@@ -24,21 +24,25 @@ public class MyController {
         return this.courseService.getCourses();
     }
 
+    //get Single Course
     @GetMapping("courses/{courseId}")
     public Course getCourse(@PathVariable String courseId) {
         return this.courseService.getCourse(Long.parseLong(courseId));
     }
 
+    //Add course
     @PostMapping(path = "/course", consumes = "application/json")
     public Course addCourse(@RequestBody Course course) {
         return this.courseService.addCourse(course);
     }
 
+    //update course using put request
     @PutMapping("/course")
     public Course updateCourse(@RequestBody Course course) {
         return this.courseService.updateCourse(course);
     }
 
+    //delete course
     @DeleteMapping("/courses/{courseId}")
     public String deleteCourse(@PathVariable String courseId) {
         return this.courseService.deleteCourse(Long.parseLong(courseId));
