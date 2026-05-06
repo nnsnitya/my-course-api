@@ -15,11 +15,6 @@ public class MyController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/home")
-    public String home() {
-        return "Welcome to courses application";
-    }
-
     //get the courses
     @GetMapping("/courses")
     public List<Course> getCourses() {
