@@ -54,5 +54,15 @@ public class CourseServiceImpl implements CourseService {
         return course;
     }
 
+    @Override
+    public String deleteCourse(long courseId) {
+        boolean removed = list.removeIf(c -> c.getId() == courseId);
+        if (removed) {
+            return courseId+" removed successfully!!";
+        } else {
+            return "Wrong courseId, Please enter correct!!";
+        }
+    }
+
 
 }
